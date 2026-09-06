@@ -1,0 +1,58 @@
+[DB] Database initialized successfully
+Starting Juice Shop Backend on port 5000...
+ * Serving Flask app 'app'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.16.175.42:5000
+[33mPress CTRL+C to quit[0m
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1788488421.786881    2326 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1788488421.787245    2326 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1788488423.046732    2326 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1788488423.047376    2326 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+127.0.0.1 - - [04/Sep/2026 02:20:24] "GET /api/predict/sales?days=7 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2026 02:26:04] "GET /api/dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2026 02:26:31] "GET /api/products HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2026 02:26:31] "GET /api/dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2026 02:26:31] "GET /api/predict/sales?days=7 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2026 02:26:31] "GET /api/sales/history?days=30 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2026 02:26:31] "GET /api/predict/info HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2026 02:26:31] "GET /api/inventory HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2026 02:26:35] "GET /api/products HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2026 02:26:35] "GET /api/products HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2026 02:28:08] "GET /api/products HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2026 02:28:08] "GET /api/orders/1 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2026 02:28:08] "GET /api/products HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2026 02:28:08] "GET /api/dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2026 02:28:08] "GET /api/inventory HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2026 02:28:08] "GET /api/alerts HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2026 02:28:08] "GET /api/predict/sales?days=7 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2026 02:28:08] "GET /api/sales/history?days=30 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2026 02:28:08] "GET /api/predict/info HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2026 02:28:08] "GET /api/sales/history?days=30 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2026 02:28:08] "GET /api/products HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2026 02:28:09] "GET /api/predict/sales?days=7 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2026 02:28:09] "GET /api/sales/history?days=30 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2026 02:28:09] "GET /api/predict/info HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2026 02:28:15] "POST /api/login HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2026 02:28:15] "POST /api/login HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2026 02:28:20] "GET /api/products HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2026 02:28:20] "GET /api/dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2026 02:28:21] "GET /api/predict/sales?days=7 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2026 02:28:21] "GET /api/sales/history?days=30 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2026 02:28:21] "GET /api/predict/info HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2026 02:29:29] "GET /api/predict/info HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2026 02:30:37] "GET /api/products HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2026 02:32:38] "POST /api/login HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2026 02:32:38] "GET /api/products HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2026 02:33:18] "POST /api/login HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2026 02:33:18] "GET /api/dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2026 02:33:22] "GET /api/predict/sales?days=7 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2026 02:33:22] "GET /api/sales/history?days=30 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2026 02:33:22] "GET /api/predict/info HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2026 02:33:53] "GET /api/dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2026 02:34:22] "GET /api/inventory HTTP/1.1" 200 -
+127.0.0.1 - - [04/Sep/2026 02:34:55] "GET /api/products HTTP/1.1" 200 -
