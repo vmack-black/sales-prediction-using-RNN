@@ -1,0 +1,12 @@
+<nav class="navbar" style="background: linear-gradient(135deg, #2ec4b6, #25a99d);">
+  <a class="navbar-brand" href="/manager/dashboard">🥤 Juice Shop <span style="font-size:0.8rem;opacity:0.8">| Manager</span></a>
+  <div class="navbar-nav">
+    <a href="/manager/dashboard" class="<%= (typeof active !== 'undefined' && active==='dashboard') ? 'active' : '' %>">Dashboard</a>
+    <a href="/manager/inventory" class="<%= (typeof active !== 'undefined' && active==='inventory') ? 'active' : '' %>">Inventory</a>
+    <a href="/manager/alerts" class="<%= (typeof active !== 'undefined' && active==='alerts') ? 'active' : '' %>">Alerts</a>
+    <a href="/manager/predictions" class="<%= (typeof active !== 'undefined' && active==='predictions') ? 'active' : '' %>">Predictions</a>
+    <a href="/manager/sales" class="<%= (typeof active !== 'undefined' && active==='sales') ? 'active' : '' %>">Sales</a>
+    <span class="navbar-user">👤 <%= user.full_name %></span>
+    <a href="/logout">Logout</a>
+  </div>
+</nav>

@@ -1,0 +1,135 @@
+<%- include('../partials/header') %>
+<%- include('../partials/navbar-manager', { active: 'predictions' }) %>
+<div class="container">
+  <div class="page-header">
+    <h1>🔮 Sales Prediction (RNN)</h1>
+    <p class="breadcrumb">AI-powered sales forecasting using LSTM Recurrent Neural Network</p>
+  </div>
+
+  <!-- Model Info -->
+  <div class="model-info-box">
+    <h4>🧠 Prediction Model Details</h4>
+    <% if (modelInfo && modelInfo.status) { %>
+      <p><strong>Status:</strong> <%= modelInfo.status %></p>
+      <p><strong>Type:</strong> <%= modelInfo.model_type %> | <strong>Framework:</strong> <%= modelInfo.framework %></p>
+      <p><strong>Sequence Length:</strong> <%= modelInfo.sequence_length %> days (lookback window)</p>
+      <div class="model-tags">
+        <span class="model-tag">RNN</span>
+        <span class="model-tag">LSTM</span>
+        <span class="model-tag">TensorFlow/Keras</span>
+        <span class="model-tag">Time Series</span>
+        <span class="model-tag">Sales Forecasting</span>
+      </div>
+    <% } else { %>
+      <p>Model information unavailable.</p>
+    <% } %>
+  </div>
+
+  <!-- Prediction Controls -->
+  <div class="table-card mb-3">
+    <div style="padding:1.2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem">
+      <div><strong>📅 Forecast Horizon:</strong> Predict next 
+        <form method="POST" action="/manager/predictions" style="display:inline">
+          <select name="days" onchange="this.form.submit()" style="padding:0.4rem;border-radius:6px;border:1px solid #ddd">
+            <option value="7" <%= days==7?'selected':'' %>>7 days</option>
+            <option value="14" <%= days==14?'selected':'' %>>14 days</option>
+            <option value="30" <%= days==30?'selected':'' %>>30 days</option>
+          </select>
+        </form>
+      </div>
+      <a href="/manager/predictions?days=<%= days %>" class="btn btn-secondary btn-sm">🔄 Refresh Prediction</a>
+    </div>
+  </div>
+
+  <% if (predictions && predictions.success && predictions.predictions) { %>
+    <!-- Prediction Summary -->
+    <div class="stats-grid">
+      <div class="stat-card green"><div class="stat-label">Total Predicted Units</div><div class="stat-value"><%= predictions.predictions.reduce((s,p)=>s+p.predicted_qty,0) %></div></div>
+      <div class="stat-card"><div class="stat-label">Predicted Revenue</div><div class="stat-value">$<%= predictions.predictions.reduce((s,p)=>s+p.predicted_revenue,0).toFixed(2) %></div></div>
+      <div class="stat-card blue"><div class="stat-label">Avg Daily Sales</div><div class="stat-value"><%= Math.round(predictions.predictions.reduce((s,p)=>s+p.predicted_qty,0)/predictions.predictions.length) %></div></div>
+      <div class="stat-card orange"><div class="stat-label">Avg Confidence</div><div class="stat-value"><%= Math.round(predictions.predictions.reduce((s,p)=>s+p.confidence,0)/predictions.predictions.length) %>%</div></div>
+    </div>
+
+    <!-- Prediction Cards -->
+    <div class="section-title">📈 Day-by-Day Forecast</div>
+    <div class="pred-grid">
+      <% predictions.predictions.forEach(p => { %>
+        <div class="pred-card">
+          <div class="pred-date"><%= p.date %></div>
+          <div class="pred-day"><%= p.day %></div>
+          <div class="pred-qty"><%= p.predicted_qty %></div>
+          <div class="pred-rev">💰 $<%= p.predicted_revenue %></div>
+          <div class="pred-conf">
+            <span style="color:var(--success)">● Confidence: <%= p.confidence %>%</span>
+            <div class="confidence-bar"><div class="confidence-fill" style="width:<%= p.confidence %>%"></div></div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+
+    <!-- Chart: Historical + Predicted -->
+    <div class="chart-container">
+      <h3>📊 Sales Trend: Historical (30 days) → Predicted (<%= days %> days)</h3>
+      <div class="bar-chart" id="trendChart"></div>
+      <div style="display:flex;gap:2rem;margin-top:1.5rem;justify-content:center;font-size:0.85rem">
+        <span><span style="display:inline-block;width:12px;height:12px;background:var(--primary);border-radius:3px;vertical-align:middle"></span> Historical Sales</span>
+        <span><span style="display:inline-block;width:12px;height:12px;background:var(--secondary);border-radius:3px;vertical-align:middle"></span> RNN Predicted Sales</span>
+      </div>
+    </div>
+
+    <!-- Recommendation -->
+    <div class="table-card">
+      <div class="card-header">💡 AI Insights & Recommendations</div>
+      <div style="padding:1.5rem">
+        <% const totalPred = predictions.predictions.reduce((s,p)=>s+p.predicted_qty,0); %>
+        <% const peakDay = predictions.predictions.reduce((max,p)=>p.predicted_qty>max.predicted_qty?p:max, predictions.predictions[0]); %>
+        <% const lowDay = predictions.predictions.reduce((min,p)=>p.predicted_qty<min.predicted_qty?p:min, predictions.predictions[0]); %>
+        <div class="alert alert-info">
+          <strong>📈 Peak Demand:</strong> <%= peakDay.day %> (<%= peakDay.date %>) with <%= peakDay.predicted_qty %> units predicted. Ensure sufficient stock and staff.
+        </div>
+        <div class="alert alert-warning mt-2">
+          <strong>📉 Low Demand:</strong> <%= lowDay.day %> (<%= lowDay.date %>) with <%= lowDay.predicted_qty %> units. Consider promotions to boost sales.
+        </div>
+        <div class="alert alert-success mt-2">
+          <strong>🥤 Stock Recommendation:</strong> Prepare approximately <%= totalPred %> units total for the next <%= days %> days. Average <%= Math.round(totalPred/days) %> units/day.
+        </div>
+        <div class="alert alert-info mt-2">
+          <strong>💰 Revenue Forecast:</strong> Expected revenue of $<%= predictions.predictions.reduce((s,p)=>s+p.predicted_revenue,0).toFixed(2) %> over the next <%= days %> days based on RNN predictions.
+        </div>
+      </div>
+    </div>
+  <% } else { %>
+    <div class="table-card">
+      <div class="empty-state">
+        <div class="icon">🧠</div>
+        <h3>Prediction Unavailable</h3>
+        <p><%= predictions && predictions.message ? predictions.message : 'Please train the RNN model first.' %></p>
+        <p style="font-size:0.85rem;color:var(--gray);margin-top:0.5rem">Run: <code>python3 ml_model/train_model.py</code> in the backend</p>
+      </div>
+    </div>
+  <% } %>
+</div>
+
+<script>
+// Render bar chart
+const history = <%= JSON.stringify(salesHistory || []) %>;
+const preds = <%= JSON.stringify((predictions && predictions.success) ? predictions.predictions : []) %>;
+const chart = document.getElementById('trendChart');
+if (chart) {
+  const allValues = [...history.map(h => h.qty), ...preds.map(p => p.predicted_qty)];
+  const maxVal = Math.max(...allValues, 1);
+  const items = [
+    ...history.slice(-15).map(h => ({ val: h.qty, label: h.date.slice(5), type: 'hist' })),
+    ...preds.map(p => ({ val: p.predicted_qty, label: p.date.slice(5), type: 'pred' }))
+  ];
+  chart.innerHTML = items.map(it => {
+    const h = (it.val / maxVal) * 100;
+    const bg = it.type === 'pred' ? 'linear-gradient(180deg, var(--secondary), #4ad4c8)' : 'linear-gradient(180deg, var(--primary), var(--accent))';
+    return `<div class="bar" style="height:${h}%;background:${bg}" title="${it.label}: ${it.val} units">
+      <span class="bar-value">${it.val}</span>
+      <span class="bar-label">${it.label}</span>
+    </div>`;
+  }).join('');
+}
+</script>
+<%- include('../partials/footer') %>

@@ -1,0 +1,6 @@
+Frontend:
+  200
+Backend:
+  200
+Local landing content:
+Juice Shop

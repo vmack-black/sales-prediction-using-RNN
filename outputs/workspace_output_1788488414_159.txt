@@ -1,0 +1,10 @@
+  2228=== PREDICTION TEST ===
+Success: True
+  2026-09-05 Saturday: 90 units | $450.0 | 85% | LSTM-RNN
+  2026-09-06 Sunday: 84 units | $420.0 | 85% | LSTM-RNN
+  2026-09-07 Monday: 38 units | $190.0 | 85% | LSTM-RNN
+  2026-09-08 Tuesday: 38 units | $190.0 | 85% | LSTM-RNN
+  2026-09-09 Wednesday: 48 units | $240.0 | 85% | LSTM-RNN
+  2026-09-10 Thursday: 49 units | $245.0 | 85% | LSTM-RNN
+  2026-09-11 Friday: 57 units | $285.0 | 85% | LSTM-RNN
+bash: line 2:  2323 Killed                  nohup python3 app.py > /workspace/juice_shop/backend_server.log 2>&1

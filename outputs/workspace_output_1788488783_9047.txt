@@ -1,0 +1,12 @@
+=== Landing Page ===
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juice Shop</title>
+  <link rel="stylesheet" href="/cs
+=== Login Page ===
+Juice Shop
+=== Customer Shop (should redirect to login) ===
+302 redirect:http://localhost:3000/login

@@ -1,0 +1,4 @@
+URL: http://localhost:3000/login
+Title: Juice Shop
+Interactive elements (5):
+Page text: 🥤 Juice Shop Sign in to your account Username Password Sign In Demo Accounts: 👤 Customer: customer / customer123 📊 Manager: manager / manager123 New customer? Create account ← Back to home

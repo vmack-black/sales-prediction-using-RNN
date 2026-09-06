@@ -1,0 +1,3 @@
+[DB] Seeded 2 default users
+[DB] Seeded 20 products
+[DB] Database initialized successfully

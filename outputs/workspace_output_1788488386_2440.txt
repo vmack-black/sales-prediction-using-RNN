@@ -1,0 +1,3 @@
+--- Testing API ---
+{"success":true,"user":{"email":"customer@juiceshop.com","full_name":"Demo Customer","id":1,"role":"customer","username":"customer"}}
+bash: line 2:  2228 Killed                  nohup python3 app.py > /workspace/juice_shop/backend_server.log 2>&1

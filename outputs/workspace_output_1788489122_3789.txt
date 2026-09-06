@@ -1,0 +1,5 @@
+Result: Filled [1] with 'customer'
+Result: ERROR: fill failed — Error: Page.fill: Error: Element is not an <input>, <textarea>, <select> or [contenteditable] and does not have a role allowing [aria-readonly]
+URL: http://localhost:3000/register
+Title: Juice Shop
+Page text: 🥤 Create Account Join Juice Shop as a customer Full Name Username Email Password Register Already have an account? Sign in

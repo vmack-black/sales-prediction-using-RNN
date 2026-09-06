@@ -1,0 +1,3 @@
+Result: ERROR: screenshot failed — Error: Unsupported screenshot mime type for path "/workspace/.screenshots/login_page": None
+Screenshot: /workspace/.screenshots/step_003.png
+Use see-image to view: /workspace/.screenshots/step_003.png

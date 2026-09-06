@@ -1,0 +1,9 @@
+Fixed includes. Verifying:
+<%- include('../partials/header') %>
+<%- include('../partials/navbar-customer', { active: 'shop' }) %>
+<%- include('../partials/footer') %>
+<%- include('../partials/header') %>
+<%- include('../partials/navbar-manager', { active: 'dashboard' }) %>
+<%- include('../partials/footer') %>
+<%- include('partials/header') %>
+<%- include('partials/footer') %>

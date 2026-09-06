@@ -1,0 +1,116 @@
+<%- include('../partials/header') %>
+<%- include('../partials/navbar-customer', { active: 'shop' }) %>
+<div class="container">
+  <div class="page-header">
+    <h1>Product Details</h1>
+    <p class="breadcrumb"><a href="/customer/shop">← Back to Shop</a></p>
+  </div>
+
+  <div class="product-detail">
+    <div class="detail-image">🥤</div>
+    <div>
+      <span class="category-tag" style="color:var(--secondary);font-weight:700;text-transform:uppercase;font-size:0.8rem"><%= product.category %></span>
+      <h1><%= product.name %></h1>
+      <div class="stars">★ <%= product.avg_rating %> <span style="color:var(--gray);font-size:0.85rem">(<%= product.review_count %> reviews)</span></div>
+      <p style="color:var(--gray);margin-top:0.5rem;line-height:1.6"><%= product.description %></p>
+
+      <div class="detail-price">$<%= product.price.toFixed(2) %></div>
+
+      <div class="detail-meta">
+        <div><div class="label">Size</div><div class="value"><%= product.size_ml %>ml</div></div>
+        <div><div class="label">Calories</div><div class="value"><%= product.calories %></div></div>
+        <div><div class="label">Stock</div><div class="value"><%= product.stock %></div></div>
+      </div>
+
+      <div style="margin:1rem 0">
+        <% if (product.stock <= product.low_stock_threshold) { %>
+          <span class="badge badge-warning">⚠ Low Stock - <%= product.stock %> left</span>
+        <% } else { %>
+          <span class="badge badge-success">✓ In Stock</span>
+        <% } %>
+      </div>
+
+      <button class="btn btn-primary btn-lg" onclick="quickAdd(<%= product.id %>, '<%= product.name %>', <%= product.price %>)" <% if(product.stock<=0){ %>disabled<% } %>>
+        <% if(product.stock>0){ %>🛒 Add to Cart<% } else { %>Sold Out<% } %>
+      </button>
+    </div>
+  </div>
+
+  <!-- Write a Review -->
+  <div class="table-card mt-3">
+    <div class="card-header">⭐ Write a Review</div>
+    <div style="padding:1.5rem">
+      <div class="form-group">
+        <label>Your Rating</label>
+        <div class="stars-input" id="starInput">
+          <span data-val="1" onclick="setRating(1)">★</span>
+          <span data-val="2" onclick="setRating(2)">★</span>
+          <span data-val="3" onclick="setRating(3)">★</span>
+          <span data-val="4" onclick="setRating(4)">★</span>
+          <span data-val="5" onclick="setRating(5)">★</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Your Comment</label>
+        <textarea id="reviewComment" class="form-control" rows="3" placeholder="Share your experience with this juice..."></textarea>
+      </div>
+      <button class="btn btn-primary" onclick="submitReview(<%= product.id %>)">Submit Review</button>
+      <div id="reviewMsg" style="margin-top:1rem"></div>
+    </div>
+  </div>
+
+  <!-- Existing Reviews -->
+  <div class="table-card mt-3">
+    <div class="card-header">💬 Customer Reviews (<%= product.review_count %>)</div>
+    <div style="padding:0 1.5rem 1.5rem">
+      <% if (product.reviews && product.reviews.length > 0) { %>
+        <% product.reviews.forEach(r => { %>
+          <div class="review-item">
+            <div class="review-header">
+              <span class="review-user"><%= r.username %></span>
+              <span class="stars">★ <%= r.rating %></span>
+            </div>
+            <div class="review-date"><%= new Date(r.created_at).toLocaleDateString() %></div>
+            <div class="review-comment"><%= r.comment %></div>
+          </div>
+        <% }) %>
+      <% } else { %>
+        <div class="empty-state"><div class="icon">💬</div><p>No reviews yet. Be the first to review!</p></div>
+      <% } %>
+    </div>
+  </div>
+</div>
+
+<script>
+let selectedRating = 0;
+function setRating(val) {
+  selectedRating = val;
+  document.querySelectorAll('#starInput span').forEach(s => {
+    s.classList.toggle('active', parseInt(s.dataset.val) <= val);
+  });
+}
+function quickAdd(id, name, price) {
+  let cart = JSON.parse(localStorage.getItem('juice_cart') || '[]');
+  const ex = cart.find(i => i.product_id === id);
+  if (ex) ex.quantity++; else cart.push({ product_id: id, name, price, quantity: 1 });
+  localStorage.setItem('juice_cart', JSON.stringify(cart));
+  alert('✅ Added to cart!');
+}
+async function submitReview(pid) {
+  if (selectedRating === 0) return alert('Please select a rating');
+  const comment = document.getElementById('reviewComment').value;
+  const resp = await fetch('/customer/review', {
+    method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: `product_id=${pid}&rating=${selectedRating}&comment=${encodeURIComponent(comment)}`
+  });
+  const result = await resp.json();
+  const msg = document.getElementById('reviewMsg');
+  if (result.success) {
+    msg.innerHTML = '<div class="alert alert-success">✅ Review submitted! Reloading...</div>';
+    setTimeout(() => location.reload(), 1500);
+  } else {
+    msg.innerHTML = '<div class="alert alert-danger">❌ ' + (result.message || 'Failed') + '</div>';
+  }
+}
+</script>
+<%- include('../partials/footer') %>

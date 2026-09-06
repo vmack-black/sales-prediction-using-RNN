@@ -1,0 +1,6 @@
+=== Testing public URL ===
+Landing page: 302
+=== Testing backend via frontend proxy ===
+Proxy test done
+=== Verify both servers running ===
+Model: LSTM | RNN (LSTM) model loaded

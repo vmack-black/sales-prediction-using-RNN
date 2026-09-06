@@ -1,0 +1,42 @@
+<%- include('../partials/header') %>
+<%- include('../partials/navbar-customer', { active: 'orders' }) %>
+<div class="container">
+  <div class="page-header">
+    <h1>📦 My Orders</h1>
+    <p class="breadcrumb">Track your juice orders</p>
+  </div>
+
+  <% if (orders.length === 0) { %>
+    <div class="table-card">
+      <div class="empty-state"><div class="icon">📦</div><h3>No orders yet</h3><p>Start shopping to place your first order!</p><a href="/customer/shop" class="btn btn-primary mt-2">Browse Juices</a></div>
+    </div>
+  <% } else { %>
+    <% orders.forEach(o => { %>
+      <div class="table-card">
+        <div class="card-header" style="display:flex;justify-content:space-between;align-items:center">
+          <span>Order #<%= o.id %></span>
+          <span class="badge <% if(o.status==='pending'){ %>badge-warning<% } else if(o.status==='completed'){ %>badge-success<% } else { %>badge-info<% } %>"><%= o.status.toUpperCase() %></span>
+        </div>
+        <table>
+          <thead><tr><th>Product</th><th>Category</th><th class="text-center">Qty</th><th class="text-right">Price</th><th class="text-right">Subtotal</th></tr></thead>
+          <tbody>
+            <% o.items.forEach(it => { %>
+              <tr>
+                <td><%= it.product_name %></td>
+                <td><span class="badge badge-secondary"><%= it.category %></span></td>
+                <td class="text-center"><%= it.quantity %></td>
+                <td class="text-right">$<%= it.price.toFixed(2) %></td>
+                <td class="text-right"><strong>$<%= (it.price * it.quantity).toFixed(2) %></strong></td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+        <div style="padding:1rem 1.5rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid #eee">
+          <span style="font-size:0.85rem;color:var(--gray)">📅 <%= new Date(o.created_at).toLocaleString() %></span>
+          <span style="font-size:1.2rem"><strong>Total:</strong> <strong style="color:var(--primary)">$<%= o.total.toFixed(2) %></strong></span>
+        </div>
+      </div>
+    <% }) %>
+  <% } %>
+</div>
+<%- include('../partials/footer') %>

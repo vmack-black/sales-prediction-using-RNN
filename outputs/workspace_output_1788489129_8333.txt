@@ -1,0 +1,11 @@
+Interactive elements (5):
+  [0] input type="text"
+  [1] input type="password"
+  [2] button type="submit" "Sign In"
+  [3] a "Create account" -> /register
+  [4] a "← Back to home" -> /
+
+Accessibility tree:
+Page text: 🥤 Juice Shop Sign in to your account Username Password Sign In Demo Accounts: 👤 Customer: customer / customer123 📊 Manager: manager / manager123 New customer? Create account ← Back to home
+
+Screenshot: /workspace/.screenshots/step_007.png

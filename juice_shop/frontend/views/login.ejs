@@ -1,0 +1,32 @@
+<%- include('partials/header') %>
+<div class="auth-page">
+  <div class="auth-card">
+    <div class="logo" style="text-align:center">🥤</div>
+    <h2>Juice Shop</h2>
+    <p class="subtitle">Sign in to your account</p>
+    <% if (error) { %>
+      <div class="alert alert-danger"><%= error %></div>
+    <% } %>
+    <form method="POST" action="/login">
+      <div class="form-group">
+        <label>Username</label>
+        <input type="text" name="username" class="form-control" required autofocus placeholder="Enter username">
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" name="password" class="form-control" required placeholder="Enter password">
+      </div>
+      <button type="submit" class="btn btn-primary btn-block btn-lg">Sign In</button>
+    </form>
+    <div class="demo-creds">
+      <strong>Demo Accounts:</strong><br>
+      👤 Customer: <code>customer</code> / <code>customer123</code><br>
+      📊 Manager: <code>manager</code> / <code>manager123</code>
+    </div>
+    <p style="text-align:center;margin-top:1rem;font-size:0.85rem">
+      New customer? <a href="/register" style="color:var(--primary);font-weight:600">Create account</a>
+    </p>
+    <p style="text-align:center;margin-top:0.5rem"><a href="/" style="color:var(--gray);font-size:0.85rem">← Back to home</a></p>
+  </div>
+</div>
+<%- include('partials/footer') %>

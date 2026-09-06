@@ -1,0 +1,4 @@
+=== Customer Shop Page ===
+=== Manager Dashboard ===
+=== Manager Predictions ===
+=== Manager Inventory ===

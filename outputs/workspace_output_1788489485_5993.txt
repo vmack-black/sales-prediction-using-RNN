@@ -1,0 +1,5 @@
+All scripts made executable:
+-rwxr-xr-x 1 root root 4527 Sep  4 02:37 install.sh
+-rwxr-xr-x 1 root root  922 Sep  4 02:38 run.sh
+-rwxr-xr-x 1 root root 3045 Sep  4 02:37 start.sh
+-rwxr-xr-x 1 root root  431 Sep  4 02:38 stop.sh

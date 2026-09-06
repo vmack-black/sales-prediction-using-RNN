@@ -1,0 +1,25 @@
+<%- include('partials/header') %>
+<div class="landing-hero">
+  <div class="logo-big">🥤</div>
+  <h1>Welcome to Juice Shop</h1>
+  <p>Fresh, healthy, and delicious juices delivered to your door. Choose your portal to get started.</p>
+  <div class="role-cards">
+    <div class="role-card">
+      <div class="icon">🛒</div>
+      <h3>Customer Portal</h3>
+      <p>Browse 20+ fresh juices, place orders, rate products, and write reviews.</p>
+      <a href="/login" class="btn btn-primary btn-block">Login as Customer</a>
+      <p style="margin-top:0.8rem;font-size:0.8rem">New here? <a href="/register" style="color:var(--primary);font-weight:600">Register</a></p>
+    </div>
+    <div class="role-card">
+      <div class="icon">📊</div>
+      <h3>Manager Portal</h3>
+      <p>Manage inventory, view alerts, run RNN sales predictions, and track analytics.</p>
+      <a href="/login" class="btn btn-secondary btn-block">Login as Manager</a>
+    </div>
+  </div>
+  <div style="margin-top:3rem;background:rgba(255,255,255,0.2);padding:1rem 2rem;border-radius:12px;font-size:0.9rem">
+    <strong>Demo Credentials:</strong> &nbsp; Customer → <code>customer / customer123</code> &nbsp;|&nbsp; Manager → <code>manager / manager123</code>
+  </div>
+</div>
+<%- include('partials/footer') %>

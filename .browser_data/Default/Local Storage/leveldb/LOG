@@ -1,0 +1,6 @@
+2026/09/04-02:16:33.985 33d Reusing MANIFEST /workspace/.browser_data/Default/Local Storage/leveldb/MANIFEST-000001
+2026/09/04-02:16:33.999 33d Recovering log #3
+2026/09/04-02:16:34.003 33d Reusing old log /workspace/.browser_data/Default/Local Storage/leveldb/000003.log 
+2026/09/04-02:31:33.476 33d Level-0 table #5: started
+2026/09/04-02:31:33.478 33d Level-0 table #5: 24090 bytes OK
+2026/09/04-02:31:33.480 33d Delete type=0 #3

@@ -1,0 +1,19 @@
+=== PREDICTION ===
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+KeyError: 'predictions'
+Success: False
+
+=== PREDICT INFO ===
+{"error":"No module named 'predict_model'","status":"model not loaded"}
+
+=== ALERTS CHECK ===
+{"new_alerts":0,"success":true}
+
+=== INVENTORY ===
+Inventory items: 20
+  Apple Crisp: 100 units [ok]
+  Avocado Cream: 25 units [ok]
+  Beet Boost: 35 units [ok]
+  Berry Blast: 70 units [ok]
+  Carrot Glow: 40 units [ok]

@@ -1,0 +1,28 @@
+total 24
+drwxr-xr-x 2 root root 4096 Sep  4 02:21 .
+drwxr-xr-x 5 root root 4096 Sep  4 02:22 ..
+-rw-r--r-- 1 root root   16 Sep  4 02:21 footer.ejs
+-rw-r--r-- 1 root root  229 Sep  4 02:21 header.ejs
+-rw-r--r-- 1 root root  736 Sep  4 02:21 navbar-customer.ejs
+-rw-r--r-- 1 root root 1011 Sep  4 02:21 navbar-manager.ejs
+---
+    at View.render (/workspace/juice_shop/frontend/node_modules/express/lib/view.js:135:8)
+    at tryRender (/workspace/juice_shop/frontend/node_modules/express/lib/application.js:657:10)
+    at Function.render (/workspace/juice_shop/frontend/node_modules/express/lib/application.js:609:3)
+Error: /workspace/juice_shop/frontend/views/customer/shop.ejs:1
+ >> 1| <%- include('partials/header') %>
+    2| <%- include('partials/navbar-customer', { active: 'shop' }) %>
+    3| <div class="container">
+    4|   <div class="page-header">
+
+Could not find the include file "partials/header"
+    at getIncludePath (/workspace/juice_shop/frontend/node_modules/ejs/lib/ejs.js:185:13)
+    at includeFile (/workspace/juice_shop/frontend/node_modules/ejs/lib/ejs.js:311:19)
+    at include (/workspace/juice_shop/frontend/node_modules/ejs/lib/ejs.js:701:16)
+    at eval ("/workspace/juice_shop/frontend/views/customer/shop.ejs":10:17)
+    at shop (/workspace/juice_shop/frontend/node_modules/ejs/lib/ejs.js:703:17)
+    at tryHandleCache (/workspace/juice_shop/frontend/node_modules/ejs/lib/ejs.js:274:36)
+    at exports.renderFile [as engine] (/workspace/juice_shop/frontend/node_modules/ejs/lib/ejs.js:491:10)
+    at View.render (/workspace/juice_shop/frontend/node_modules/express/lib/view.js:135:8)
+    at tryRender (/workspace/juice_shop/frontend/node_modules/express/lib/application.js:657:10)
+    at Function.render (/workspace/juice_shop/frontend/node_modules/express/lib/application.js:609:3)

@@ -1,0 +1,20 @@
+ 1. Orange Burst           | Citrus       | $4.50 | stock: 80
+ 2. Mango Tango            | Tropical     | $5.25 | stock: 65
+ 3. Green Detox            | Detox        | $6.00 | stock: 45
+ 4. Berry Blast            | Berry        | $5.75 | stock: 70
+ 5. Watermelon Wave        | Hydration    | $4.25 | stock: 90
+ 6. Pineapple Paradise     | Tropical     | $5.50 | stock: 55
+ 7. Carrot Glow            | Veggie       | $4.75 | stock: 40
+ 8. Beet Boost             | Veggie       | $5.95 | stock: 35
+ 9. Apple Crisp            | Fruit        | $3.95 | stock: 100
+10. Pomegranate Power      | Antioxidant  | $6.50 | stock: 30
+11. Cucumber Cooler        | Hydration    | $4.00 | stock: 85
+12. Strawberry Sunrise     | Berry        | $5.25 | stock: 60
+13. Lemon Zest             | Citrus       | $3.75 | stock: 95
+14. Avocado Cream          | Creamy       | $7.25 | stock: 25
+15. Peach Perfection       | Fruit        | $5.00 | stock: 50
+16. Kiwi Kick              | Fruit        | $4.85 | stock: 45
+17. Coconut Bliss          | Tropical     | $4.50 | stock: 75
+18. Cherry Charm           | Berry        | $6.25 | stock: 20
+19. Grape Galaxy           | Fruit        | $4.25 | stock: 65
+20. Ginger Fire            | Wellness     | $5.50 | stock: 15

@@ -1,0 +1,6 @@
+/usr/local/bin/python3
+Python 3.11.15
+/usr/bin/node
+v20.20.2
+/usr/bin/npm
+11.17.0

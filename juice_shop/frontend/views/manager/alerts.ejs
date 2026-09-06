@@ -1,0 +1,62 @@
+<%- include('../partials/header') %>
+<%- include('../partials/navbar-manager', { active: 'alerts' }) %>
+<div class="container">
+  <div class="page-header" style="display:flex;justify-content:space-between;align-items:flex-end">
+    <div>
+      <h1>🔔 Alerts & Notifications</h1>
+      <p class="breadcrumb">Monitor system alerts and inventory warnings</p>
+    </div>
+    <button class="btn btn-warning" onclick="checkAlerts()">🔍 Check for New Alerts</button>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat-card red"><div class="stat-label">Active Alerts</div><div class="stat-value"><%= alerts.length %></div></div>
+    <div class="stat-card orange"><div class="stat-label">Critical</div><div class="stat-value" id="critAlerts">0</div></div>
+    <div class="stat-card"><div class="stat-label">Warnings</div><div class="stat-value" id="warnAlerts">0</div></div>
+  </div>
+
+  <div class="table-card">
+    <div class="card-header">All Active Alerts</div>
+    <div style="padding:1.5rem">
+      <% if (alerts.length === 0) { %>
+        <div class="empty-state"><div class="icon">✅</div><h3>No active alerts</h3><p>Everything looks good! Click "Check for New Alerts" to scan.</p></div>
+      <% } else { %>
+        <% alerts.forEach(a => { %>
+          <div class="alert-item <%= a.severity %>">
+            <span class="alert-icon"><% if(a.severity==='critical'){ %>🚨<% } else if(a.severity==='warning'){ %>⚠️<% } else { %>ℹ️<% } %></span>
+            <div class="alert-msg">
+              <div><strong><%= a.type.replace(/_/g,' ').toUpperCase() %></strong> <% if(a.product_name){ %>- <%= a.product_name %><% } %></div>
+              <div style="color:var(--gray);font-size:0.88rem"><%= a.message %></div>
+              <div class="alert-time"><%= new Date(a.created_at).toLocaleString() %></div>
+            </div>
+            <button class="btn btn-success btn-sm" onclick="resolveAlert(<%= a.id %>)">Resolve ✓</button>
+          </div>
+        <% }) %>
+      <% } %>
+    </div>
+  </div>
+</div>
+
+<script>
+async function checkAlerts() {
+  const resp = await fetch('/manager/alerts/check', { method: 'POST' });
+  const result = await resp.json();
+  if (result.success) {
+    if (result.new_alerts > 0) {
+      alert('🚨 Found ' + result.new_alerts + ' new alert(s)!');
+    } else {
+      alert('✅ No new alerts found. All inventory levels are healthy.');
+    }
+    location.reload();
+  }
+}
+async function resolveAlert(id) {
+  const resp = await fetch('/manager/alerts/' + id + '/resolve', { method: 'POST' });
+  const result = await resp.json();
+  if (result.success) location.reload();
+}
+const alertData = <%= JSON.stringify(alerts.map(a => a.severity)) %>;
+document.getElementById('critAlerts').textContent = alertData.filter(s => s === 'critical').length;
+document.getElementById('warnAlerts').textContent = alertData.filter(s => s === 'warning').length;
+</script>
+<%- include('../partials/footer') %>

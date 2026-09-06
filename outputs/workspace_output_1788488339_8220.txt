@@ -1,0 +1,16 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1788488340.107723    2074 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1788488340.108099    2074 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1788488341.398504    2074 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1788488341.399149    2074 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+Model Info: {'status': 'RNN (LSTM) model loaded', 'model_type': 'LSTM', 'sequence_length': 14, 'framework': 'TensorFlow/Keras', 'scaler': {'mean': 40.644444444444446, 'std': 8.96946810154824}}
+
+7-Day Sales Prediction:
+  2026-09-05 (Saturday): 46 units | $230.0 | confidence: 85%
+  2026-09-06 (Sunday): 92 units | $460.0 | confidence: 85%
+  2026-09-07 (Monday): 84 units | $420.0 | confidence: 85%
+  2026-09-08 (Tuesday): 39 units | $195.0 | confidence: 85%
+  2026-09-09 (Wednesday): 41 units | $205.0 | confidence: 85%
+  2026-09-10 (Thursday): 47 units | $235.0 | confidence: 85%
+  2026-09-11 (Friday): 49 units | $245.0 | confidence: 85%

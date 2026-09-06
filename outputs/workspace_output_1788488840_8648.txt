@@ -1,0 +1,3 @@
+=== Customer Shop status ===
+000
+=== Product names found ===

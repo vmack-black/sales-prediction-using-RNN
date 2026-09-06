@@ -1,0 +1,30 @@
+<%- include('../partials/header') %>
+<%- include('../partials/navbar-customer', { active: 'profile' }) %>
+<div class="container">
+  <div class="page-header">
+    <h1>👤 My Profile</h1>
+    <p class="breadcrumb">Account information</p>
+  </div>
+
+  <div class="table-card" style="max-width:500px">
+    <div style="padding:2rem;text-align:center">
+      <div style="font-size:4rem;margin-bottom:1rem">👤</div>
+      <h2><%= user.full_name %></h2>
+      <p style="color:var(--gray)"><%= user.email %></p>
+      <span class="badge badge-info" style="margin-top:0.5rem">Customer Account</span>
+    </div>
+    <table>
+      <tr><td><strong>Username</strong></td><td><%= user.username %></td></tr>
+      <tr><td><strong>Full Name</strong></td><td><%= user.full_name %></td></tr>
+      <tr><td><strong>Email</strong></td><td><%= user.email %></td></tr>
+      <tr><td><strong>Role</strong></td><td><span class="badge badge-info">Customer</span></td></tr>
+      <tr><td><strong>User ID</strong></td><td>#<%= user.id %></td></tr>
+    </table>
+  </div>
+
+  <div class="mt-3" style="max-width:500px">
+    <a href="/customer/shop" class="btn btn-primary btn-block">🛒 Continue Shopping</a>
+    <a href="/logout" class="btn btn-danger btn-block mt-2">Logout</a>
+  </div>
+</div>
+<%- include('../partials/footer') %>

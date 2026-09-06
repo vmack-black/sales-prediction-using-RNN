@@ -1,0 +1,2 @@
+URL: http://localhost:3000/manager/dashboard
+Screenshot: /workspace/.screenshots/step_022.png

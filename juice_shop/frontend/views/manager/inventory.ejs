@@ -1,0 +1,71 @@
+<%- include('../partials/header') %>
+<%- include('../partials/navbar-manager', { active: 'inventory' }) %>
+<div class="container">
+  <div class="page-header">
+    <h1>📦 Inventory Management</h1>
+    <p class="breadcrumb">Monitor and restock your juice products</p>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat-card green"><div class="stat-label">In Stock (OK)</div><div class="stat-value" id="okCount">0</div></div>
+    <div class="stat-card orange"><div class="stat-label">Low Stock</div><div class="stat-value" id="lowCount">0</div></div>
+    <div class="stat-card red"><div class="stat-label">Critical</div><div class="stat-value" id="critCount">0</div></div>
+    <div class="stat-card blue"><div class="stat-label">Total Items</div><div class="stat-value"><%= inventory.length %></div></div>
+  </div>
+
+  <div class="table-card">
+    <div class="card-header">All Products Inventory</div>
+    <table>
+      <thead>
+        <tr><th>Product</th><th>Category</th><th class="text-center">Price</th><th class="text-center">Stock</th><th class="text-center">Threshold</th><th class="text-center">Status</th><th class="text-center">Action</th></tr>
+      </thead>
+      <tbody>
+        <% inventory.forEach(p => { %>
+          <tr id="row-<%= p.id %>">
+            <td><strong><%= p.name %></strong></td>
+            <td><span class="badge badge-secondary"><%= p.category %></span></td>
+            <td class="text-center">$<%= p.price.toFixed(2) %></td>
+            <td class="text-center" id="stock-<%= p.id %>"><strong><%= p.stock %></strong></td>
+            <td class="text-center"><%= p.low_stock_threshold %></td>
+            <td class="text-center">
+              <% if (p.status === 'critical') { %><span class="badge badge-critical">CRITICAL</span>
+              <% } else if (p.status === 'low') { %><span class="badge badge-warning">LOW</span>
+              <% } else { %><span class="badge badge-success">OK</span><% } %>
+            </td>
+            <td class="text-center">
+              <div style="display:inline-flex;gap:0.3rem;align-items:center">
+                <input type="number" id="restock-<%= p.id %>" placeholder="qty" style="width:60px;padding:0.3rem;border:1px solid #ddd;border-radius:6px" value="20" min="1">
+                <button class="btn btn-success btn-sm" onclick="restock(<%= p.id %>)">Restock</button>
+              </div>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+async function restock(pid) {
+  const amt = parseInt(document.getElementById('restock-' + pid).value);
+  if (!amt || amt < 1) return alert('Enter a valid quantity');
+  const resp = await fetch('/manager/restock/' + pid, {
+    method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: 'amount=' + amt
+  });
+  const result = await resp.json();
+  if (result.success) {
+    alert('✅ ' + result.message);
+    location.reload();
+  } else {
+    alert('❌ ' + (result.message || 'Failed'));
+  }
+}
+
+// Count stats
+const inv = <%= JSON.stringify(inventory.map(p => p.status)) %>;
+document.getElementById('okCount').textContent = inv.filter(s => s === 'ok').length;
+document.getElementById('lowCount').textContent = inv.filter(s => s === 'low').length;
+document.getElementById('critCount').textContent = inv.filter(s => s === 'critical').length;
+</script>
+<%- include('../partials/footer') %>

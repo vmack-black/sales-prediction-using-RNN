@@ -1,0 +1,2 @@
+URL: http://localhost:3000/manager/inventory
+Screenshot: /workspace/.screenshots/step_024.png

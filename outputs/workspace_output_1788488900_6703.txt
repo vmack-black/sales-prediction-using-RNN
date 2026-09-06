@@ -1,0 +1,10 @@
+=== Customer shop with login cookie ===
+Status: 200
+=== Manager dashboard with login cookie ===
+Status: 200
+=== Check predictions page content ===
+Confidence
+Day-by-Day
+Forecast
+LSTM
+predicted_qty

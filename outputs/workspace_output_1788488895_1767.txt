@@ -1,0 +1,7 @@
+=== Login as customer via frontend ===
+Status: 404, Redirect: http://localhost:3000/customer/shop
+Cookie set:
+localhost	FALSE	/	FALSE	1788575295	juice_user	%7B%22email%22%3A%22customer%40jui
+
+=== Login as manager via frontend ===
+Status: 404, Redirect: http://localhost:3000/manager/dashboard

@@ -1,0 +1,11 @@
+<nav class="navbar">
+  <a class="navbar-brand" href="/customer/shop">🥤 Juice Shop</a>
+  <div class="navbar-nav">
+    <a href="/customer/shop" class="<%= (typeof active !== 'undefined' && active==='shop') ? 'active' : '' %>">Shop</a>
+    <a href="/customer/orders" class="<%= (typeof active !== 'undefined' && active==='orders') ? 'active' : '' %>">My Orders</a>
+    <a href="/customer/reviews" class="<%= (typeof active !== 'undefined' && active==='reviews') ? 'active' : '' %>">Reviews</a>
+    <a href="/customer/profile" class="<%= (typeof active !== 'undefined' && active==='profile') ? 'active' : '' %>">Profile</a>
+    <span class="navbar-user">👤 <%= user.full_name %></span>
+    <a href="/logout">Logout</a>
+  </div>
+</nav>

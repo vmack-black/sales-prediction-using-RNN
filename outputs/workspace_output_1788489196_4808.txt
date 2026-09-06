@@ -1,0 +1,4 @@
+URL: http://localhost:3000/login
+URL: http://localhost:3000/manager/dashboard
+URL: http://localhost:3000/manager/predictions
+Title: Juice Shop

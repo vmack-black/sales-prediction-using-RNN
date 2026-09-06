@@ -1,0 +1,13 @@
+views/customer/orders.ejs
+views/customer/product.ejs
+views/customer/reviews.ejs
+views/customer/profile.ejs
+views/customer/shop.ejs
+views/landing.ejs
+views/login.ejs
+views/register.ejs
+views/manager/sales.ejs
+views/manager/dashboard.ejs
+views/manager/alerts.ejs
+views/manager/predictions.ejs
+views/manager/inventory.ejs

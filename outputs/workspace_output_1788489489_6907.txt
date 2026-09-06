@@ -1,0 +1,6 @@
+🛑 Stopping Juice Shop...
+  2323   ✅ Backend stopped (port 5000)
+  3125   ✅ Frontend stopped (port 3000)
+
+✅ Juice Shop stopped.
+=== Now testing install.sh ===

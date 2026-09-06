@@ -1,0 +1,11 @@
+=== Status code for customer shop ===
+500
+=== First 500 chars ===
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Error: /workspace/juice_shop/frontend/views/customer/shop.ejs:1<br> &gt;&gt; 1| &lt;%- include(&#39;partials/header&#39;) %&gt;<br> &nbsp; &nbsp;2| &lt;%- include(&#39;partials/navbar-customer&#39;, { active: &#39;shop&#39; }) %&gt;<br> &nbsp; &nbsp;3| &lt;div class=&quot;container&quot;&gt;<br> &nbsp; &nbsp;4| &nbsp; &lt;div class=&quot;page-header&quot;&gt;<br><br>Could not find the include 

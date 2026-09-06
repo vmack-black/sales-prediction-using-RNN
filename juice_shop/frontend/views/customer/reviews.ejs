@@ -1,0 +1,32 @@
+<%- include('../partials/header') %>
+<%- include('../partials/navbar-customer', { active: 'reviews' }) %>
+<div class="container">
+  <div class="page-header">
+    <h1>⭐ Reviews & Ratings</h1>
+    <p class="breadcrumb">Share your thoughts on our juices</p>
+  </div>
+
+  <div class="table-card mb-3">
+    <div style="padding:1.5rem">
+      <p style="color:var(--gray)">Click on any product below to write a review and rate it. Your feedback helps us improve!</p>
+    </div>
+  </div>
+
+  <div class="product-grid">
+    <% products.forEach(p => { %>
+      <div class="product-card">
+        <div class="product-image">🥤</div>
+        <div class="product-body">
+          <span class="category-tag"><%= p.category %></span>
+          <h3><%= p.name %></h3>
+          <div class="meta">
+            <span class="price">$<%= p.price.toFixed(2) %></span>
+            <span class="rating">★ <%= p.avg_rating %> (<%= p.review_count %> reviews)</span>
+          </div>
+          <a href="/customer/product/<%= p.id %>" class="btn btn-primary btn-sm btn-block">View & Review</a>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</div>
+<%- include('../partials/footer') %>

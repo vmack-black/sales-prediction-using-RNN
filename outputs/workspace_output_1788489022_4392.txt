@@ -1,0 +1,5 @@
+=== Public URL test ===
+Final URL: https://super.myninja.ai/404
+HTTP Status: 404
+
+=== Check content ===

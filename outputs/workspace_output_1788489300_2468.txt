@@ -1,0 +1,15 @@
+=== Complete File Count ===
+EJS Views: 17
+Python files: 4
+JS files: 1
+CSS files: 1
+
+=== Trained RNN Model ===
+-rw-r--r-- 1 root root 393K Sep  4 02:18 ml_model/sales_rnn_model.h5
+-rw-r--r-- 1 root root  144 Sep  4 02:18 ml_model/scaler.npy
+
+=== Database ===
+-rw-r--r-- 1 root root 88K Sep  4 02:20 backend/juice_shop.db
+Users: 2
+Products: 20
+Sales history records: 1802

@@ -1,0 +1,24 @@
+Customer Shop:
+  200
+Customer Orders:
+  200
+Customer Reviews:
+  200
+Manager Dashboard:
+  200
+Manager Inventory:
+  200
+Manager Alerts:
+  200
+Manager Predictions:
+  200
+Manager Sales:
+  200
+--- Content checks ---
+Products in shop:
+Mango Tango
+Orange Burst
+RNN in predictions:
+LSTM
+RNN
+Sales Prediction

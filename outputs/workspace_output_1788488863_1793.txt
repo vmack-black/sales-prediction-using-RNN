@@ -1,0 +1,1 @@
+bash: line 2:  3125 Killed                  node server.js > /tmp/frontend.log 2>&1

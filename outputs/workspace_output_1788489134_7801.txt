@@ -1,0 +1,4 @@
+Result: Filled [0] with 'customer'
+Result: Filled [1] with 'customer123'
+URL: http://localhost:3000/login
+Title: Juice Shop

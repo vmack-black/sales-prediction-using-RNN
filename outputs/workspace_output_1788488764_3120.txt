@@ -1,0 +1,2 @@
+{"active_alerts":0,"avg_rating":5.0,"low_stock_count":0,"recent_orders":[{"creat
+Backend OK

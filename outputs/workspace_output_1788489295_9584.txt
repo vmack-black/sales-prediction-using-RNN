@@ -1,0 +1,40 @@
+=== Server Status ===
+Backend (port 5000): 200
+Frontend (port 3000): 200
+
+=== Project Structure ===
+./README.md
+./backend/app.py
+./backend/database.py
+./backend/requirements.txt
+./backend_server.log
+./frontend/package.json
+./frontend/public/css/style.css
+./frontend/server.js
+./frontend/views/customer/orders.ejs
+./frontend/views/customer/product.ejs
+./frontend/views/customer/profile.ejs
+./frontend/views/customer/reviews.ejs
+./frontend/views/customer/shop.ejs
+./frontend/views/landing.ejs
+./frontend/views/login.ejs
+./frontend/views/manager/alerts.ejs
+./frontend/views/manager/dashboard.ejs
+./frontend/views/manager/inventory.ejs
+./frontend/views/manager/predictions.ejs
+./frontend/views/manager/sales.ejs
+./frontend/views/partials/footer.ejs
+./frontend/views/partials/header.ejs
+./frontend/views/partials/navbar-customer.ejs
+./frontend/views/partials/navbar-manager.ejs
+./frontend/views/register.ejs
+./ml_model/predict_model.py
+./ml_model/train_model.py
+./start.sh
+./todo.md
+
+=== Files Count ===
+find: ‘views’: No such file or directory
+Views: 0
+Python: 4
+JS: 1

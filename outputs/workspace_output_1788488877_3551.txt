@@ -1,0 +1,5 @@
+🥤 Juice Shop Frontend running on http://localhost:3000
+   Backend API: http://localhost:5000
+   Default users: customer/customer123 | manager/manager123
+---
+Landing status: 200

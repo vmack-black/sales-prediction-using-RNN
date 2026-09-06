@@ -1,0 +1,11 @@
+=== Local / response ===
+Status: 200
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: text/html; charset=utf-8
+Content-Length: 1463
+ETag: W/"5b7-DJYZDXTJbsyG7gr46HAMCJZB30U"
+
+=== Try /login directly on public URL ===
+Status: 302
+URL: https://01w10.app.super.myninja.ai/login
